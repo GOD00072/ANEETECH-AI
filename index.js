@@ -122,11 +122,11 @@ async function saveChatHistoryToFile(userId, chatHistory) {
 
 async function sendLoadingAnimation(userId, loadingSeconds) {
   const lineLoadingUrl = 'https://api.line.me/v2/bot/chat/loading/start';
-  const channelAccessToken = 'cWHKG78kh9t8LwxiiNMCNclUQAiJE97hC4UDnlNkstYP2zUaFS5zmfRadHmwC9enl9zaZsngI7uy7hyVv/ZQOK4iVlC52Qqj50yxYmWNEtYBpNRjLA3I247T9E6WPfW5P75Ost6WGooCM0l3czH+KQdB04t89/1O/w1cDnyilFU='; // Replace with your channel access token
+  const channelAccessToken = 'XtP0q7WFPsW0EHtyswA0zzJLbWFQA0e/Bsgl5Cm5SHjFAFutkNkSi5GU2GI/4zWAxKtQL5dZVbRINfWzX/NIOBdfP0biE4mZj9V2Y24CnNVlS0mmu0TkT+wNNDcZ1+k1AuUCpXmgUCr8YbiyGeLCNgdB04t89/1O/w1cDnyilFU='; // Replace with your channel access token
 
   const headers = {
     'Content-Type': 'application/json',
-    'Authorization': `Bearer cWHKG78kh9t8LwxiiNMCNclUQAiJE97hC4UDnlNkstYP2zUaFS5zmfRadHmwC9enl9zaZsngI7uy7hyVv/ZQOK4iVlC52Qqj50yxYmWNEtYBpNRjLA3I247T9E6WPfW5P75Ost6WGooCM0l3czH+KQdB04t89/1O/w1cDnyilFU=}`,
+    'Authorization': `Bearer XtP0q7WFPsW0EHtyswA0zzJLbWFQA0e/Bsgl5Cm5SHjFAFutkNkSi5GU2GI/4zWAxKtQL5dZVbRINfWzX/NIOBdfP0biE4mZj9V2Y24CnNVlS0mmu0TkT+wNNDcZ1+k1AuUCpXmgUCr8YbiyGeLCNgdB04t89/1O/w1cDnyilFU=`,
   };
 
   const body = {
@@ -159,7 +159,7 @@ app.post('/webhook', async (req, res) => {
       try {
         const response = await axios.get(profileUrl, {
           headers: {
-            Authorization: 'Bearer cWHKG78kh9t8LwxiiNMCNclUQAiJE97hC4UDnlNkstYP2zUaFS5zmfRadHmwC9enl9zaZsngI7uy7hyVv/ZQOK4iVlC52Qqj50yxYmWNEtYBpNRjLA3I247T9E6WPfW5P75Ost6WGooCM0l3czH+KQdB04t89/1O/w1cDnyilFU='
+            Authorization: 'Bearer XtP0q7WFPsW0EHtyswA0zzJLbWFQA0e/Bsgl5Cm5SHjFAFutkNkSi5GU2GI/4zWAxKtQL5dZVbRINfWzX/NIOBdfP0biE4mZj9V2Y24CnNVlS0mmu0TkT+wNNDcZ1+k1AuUCpXmgUCr8YbiyGeLCNgdB04t89/1O/w1cDnyilFU='
           }
         });
 
@@ -200,7 +200,7 @@ app.post('/webhook', async (req, res) => {
       const lineReplyUrl = 'https://api.line.me/v2/bot/message/reply';
       const headers = {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer cWHKG78kh9t8LwxiiNMCNclUQAiJE97hC4UDnlNkstYP2zUaFS5zmfRadHmwC9enl9zaZsngI7uy7hyVv/ZQOK4iVlC52Qqj50yxYmWNEtYBpNRjLA3I247T9E6WPfW5P75Ost6WGooCM0l3czH+KQdB04t89/1O/w1cDnyilFU=', 
+        'Authorization': 'Bearer XtP0q7WFPsW0EHtyswA0zzJLbWFQA0e/Bsgl5Cm5SHjFAFutkNkSi5GU2GI/4zWAxKtQL5dZVbRINfWzX/NIOBdfP0biE4mZj9V2Y24CnNVlS0mmu0TkT+wNNDcZ1+k1AuUCpXmgUCr8YbiyGeLCNgdB04t89/1O/w1cDnyilFU=', 
       };
 
 
@@ -228,7 +228,7 @@ const flexMessage = {
                 aspectMode: 'cover',
                 action: {
                   type: 'uri',
-                  uri: 'https://389e86d2fb29e6.lhr.life'
+                  uri: 'https://aneetech-reservation.onrender.com'
                 }
               },
               body: {
@@ -247,7 +247,7 @@ const flexMessage = {
                     action: {
                       type: 'uri',
                       label: 'คลิกเพื่อจอง',
-                      uri: 'https://389e86d2fb29e6.lhr.life'
+                      uri: 'https://aneetech-reservation.onrender.com'
                     },
                     style: 'primary'
                   }
