@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Management</title>
+</head>
+<body>
+  <h1>File Management</h1>
+
+  <h2>Upload File</h2>
+  <form id="uploadForm" enctype="multipart/form-data">
+    <input type="file" name="file" required>
+    <button type="submit">Upload</button>
+  </form>
+
+  <h2>File List</h2>
+  <ul id="fileList"></ul>
+
+  <script>
+    document.getElementById('uploadForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      fetch('/upload', {
+        method: 'POST',
+        body: formData
+      }).then(response => response.text())
+        .then(result => {
+          alert(result);
+          loadFiles();
+        });
+    });
+
+    function loadFiles() {
+      fetch('/files')
+        .then(response => response.json())
+        .then(files => {
+          const fileList = document.getElementById('fileList');
+          fileList.innerHTML = '';
+          files.forEach(file => {
+            const li = document.createElement('li');
+            li.textContent = file;
+            const downloadLink = document.createElement('a');
+            downloadLink.href = `/download/${file}`;
+            downloadLink.textContent = ' Download';
+            downloadLink.style.marginLeft = '10px';
+            li.appendChild(downloadLink);
+
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = ' Delete';
+            deleteButton.style.marginLeft = '10px';
+            deleteButton.onclick = () => deleteFile(file);
+            li.appendChild(deleteButton);
+
+            fileList.appendChild(li);
+          });
+        });
+    }
+
+    function deleteFile(filename) {
+      fetch(`/delete/${filename}`, { method: 'DELETE' })
+        .then(response => response.text())
+        .then(result => {
+          alert(result);
+          loadFiles();
+        });
+    }
+
+    // Initial load of files
+    loadFiles();
+  </script>
+</body>
+</html>
